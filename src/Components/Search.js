@@ -5,12 +5,17 @@ import "./Search.css";
 let min, max
 
 function Search() {
-
+/**
+* Use states to update the UI of the range selectors
+*/
     const [minValue, onMinChange] = useState(0);
     const [maxValue, onMaxChange] = useState(100);
     min = minValue
     max = maxValue
 
+/**
+* Render the Search component
+*/
 
     return (
         <div>
@@ -48,11 +53,12 @@ function Search() {
                 </div>
             </div>
         </div>
-
     )
-
 }
 
+/**
+* Update the displayed data when a user performs searches
+*/
 let lists = ["managerList", "employeeList", "traineeList"]
 function displayResults() {
 
@@ -89,12 +95,11 @@ function displayResults() {
         else {
             header.style.display = "none"
         }
-
     }
-
-
 }
-
+/**
+* Update Data when a user selects a role type
+*/
 function checkRoleType(txtValue) {
     if (document.getElementById("roleType").value === "All") {
         return true;
@@ -114,8 +119,6 @@ function checkRoleType(txtValue) {
         if (txtValue.includes("Trainee"))
             return true;
     }
-
     else return false;
 }
-
 export default Search

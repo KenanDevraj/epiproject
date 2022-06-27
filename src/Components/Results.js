@@ -17,68 +17,58 @@ function Person(n, s, b, num, sal, rol, rep, child) {
     this.repLine = rep;
     this.children = child;
 }
+/**
+ * Declare arrays to store Persons in arrays
+ */
 var managers = []
 var employees = []
 var trainees = []
 
 
-
-
-
-
 function Results() {
 
+ /**
+ * Retrieve data from database
+ */
     const [data] = useState(e);
- 
     managers = []
     employees = []
     trainees = []
     populateArrays(data);
 
+/**
+* Use states to dynamically update the UI
+*/
     const [m, setManangers] = useState();
     const [em, setEmployees] = useState();
     const [tr, setTrainees] = useState(trainees);
 
-    console.log(tr)
-
-
+/**
+* Render the data in the arrays populated above
+*/
     return (
         <div className="displayResults">
-
             <ul className="managerList" id="managerList">
                 <h1>Managers</h1>
                 {managers.map((manager) => {
                     return (
-
-                        <div >
-                            <li><p onClick={() => { updateResults(manager); }} title={manager.salary} className="managerChip"><img src={contact} />[{manager.role}] {manager.name} {manager.surname} {manager.birth} R{manager.salary}</p>
+                        <div>
+                            <li><p onClick={() => { updateResults(manager); }} title={manager.salary} className="managerChip"><img src={contact} />{manager.empNum} - [{manager.role}] {manager.name} {manager.surname} {manager.birth} R{manager.salary}</p>
                                 {manager.children.map((e) => {
-
                                     return (
                                         <div id={e.empNum} className="manEmployees">
-                                            <img className="arrow" src={arrow} /><p title={e.salary} className="empChip"><img src={contact} />[{e.role}] {e.name} {e.surname} {e.birth} R{e.salary}</p>
-
-                                            {e.children.map((t) => {
-                                                {/* let uniqueID = "MANEMP" + t.empNum         */ }
+                                            <img className="arrow" src={arrow} /><p title={e.salary} className="empChip"><img src={contact} />{e.empNum} -[{e.role}] {e.name} {e.surname} {e.birth} R{e.salary}</p>
+                                            {e.children.map((t) => {                                         
                                                 return (
                                                     <div className="manEmployees">
-                                                        <img className="arrow" src={arrow} /> <p title={t.salary} className="traineeChip"><img src={contact} />[{t.role}] {t.name} {t.surname} {t.birth} R{t.salary}</p>
+                                                        <img className="arrow" src={arrow} /> <p title={t.salary} className="traineeChip"><img src={contact} />{t.empNum} - [{t.role}] {t.name} {t.surname} {t.birth} R{t.salary}</p>
                                                     </div>
-                                                )
-
-                                            })
-                                            }
+                                                )})}
                                         </div>
-                                    )
-
-                                })
-                                }
+                                    )})}
                             </li>
                         </div>
-                    )
-                }
-
-                )}
+                    )})}
             </ul>
             <ul className="employeeList" id="employeeList">
                 <h1 >Employees</h1>
@@ -86,13 +76,13 @@ function Results() {
                 {employees.map((em) => {
                     return (
                         <div>
-                            <li  ><p onClick={() => { updateResults(em); }} title={em.salary} className="empChip"><img src={contact} />[{em.role}] {em.name} {em.surname} {em.birth} R{em.salary}</p>
+                            <li  ><p onClick={() => { updateResults(em); }} title={em.salary} className="empChip"><img src={contact} />{em.empNum} - [{em.role}] {em.name} {em.surname} {em.birth} R{em.salary}</p>
 
                                 {em.children.map((t) => {
                                     let uniqueID = "EMP" + t.empNum
                                     return (
                                         <div id={uniqueID} className="manEmployees" >
-                                            <img className="arrow" src={arrow} /><p title={t.salary} className="traineeChip"><img src={contact} />[{t.role}] {t.name} {t.surname} {t.birth} R{t.salary}</p>
+                                            <img className="arrow" src={arrow} /><p title={t.salary} className="traineeChip"><img src={contact} />{t.empNum} - [{t.role}] {t.name} {t.surname} {t.birth} R{t.salary}</p>
                                         </div>
                                     )
 
@@ -108,11 +98,11 @@ function Results() {
             <ul className="traineeList" id="traineeList">
                 <h1>TRAINEES</h1>
 
-                {trainees.map((t) => {
+                {tr.map((t) => {
 
                     return (
                         <div>
-                            <li><p title={[t.salary, t.birth]} className="traineeChip"><img src={contact} />[{t.role}] {t.name} {t.surname} {t.birth} R{t.salary}</p></li>
+                            <li><p title={[t.salary, t.birth]} className="traineeChip"><img src={contact} />{t.empNum} - [{t.role}] {t.name} {t.surname} {t.birth} R{t.salary}</p></li>
                         </div>
                     )
                 }
@@ -121,7 +111,7 @@ function Results() {
 
             <div>
                 <button onClick={() => {
-                    tr[0].name="BITCHBOT"
+                    tr[0].name="t"
                      setTrainees(tr)
                      console.log(tr)
                 }}>
@@ -132,21 +122,16 @@ function Results() {
                     Sort by Lowest Earning
                 </button>
             </div>
-
         </div>
-
-
     );
-
-
 }
-
 export default Results;
 
-
+/**
+* Update data when Dropdowns are clicked on
+*/
 function updateResults(clickedObject) {
     let temp = ""
-
     if (clickedObject.role === "Employee") {
         temp = "EMP";
     }
@@ -156,13 +141,12 @@ function updateResults(clickedObject) {
         if (hideDiv.style.display !== "none") {
             hideDiv.style.display = "none";
         } else hideDiv.style.display = "";
-
-
-
     }
-
 }
 
+/**
+* Populate arrays from the "Database with Persons"
+*/
 function populateArrays(data) {
     //Populate Trainee array from "Database"
     for (let i = 0; i < data.length; i++) {
@@ -170,12 +154,10 @@ function populateArrays(data) {
             trainees.push(new Person(data[i].name, data[i].surname, data[i].birth, data[i].empNum,
                 data[i].salary, data[i].role, data[i].repLine, null))
         }
-
     }
     //Populate Employee array from "Database"
     for (let i = 0; i < data.length; i++) {
         if (data[i].role === "Employee") {
-
             let empsTrainees = []
             for (let j = 0; j < trainees.length; j++) {
                 if (data[i].empNum === trainees[j].repLine) {
@@ -184,7 +166,6 @@ function populateArrays(data) {
             }
             employees.push(new Person(data[i].name, data[i].surname, data[i].birth, data[i].empNum,
                 data[i].salary, data[i].role, data[i].repLine, empsTrainees))
-
         }
     }
     //Populate Manager array from "Database"
@@ -221,14 +202,10 @@ function sortDataAce(traineesArr, setTrainees) {
 
 }
 
-
 function sortDataDec() {
     console.log(managers)
     console.log(employees)
     console.log(trainees)
-
-
-
 }
 
 
