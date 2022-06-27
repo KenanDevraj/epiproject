@@ -31,12 +31,21 @@
 }
 
 
-.min-slider {
+.salary-slider {
     position: relative;
     width: 10%;
     height: 10%;
     margin-top: -3%;
     margin-left: 65%;
+
+}
+
+.age-slider {
+    position: relative;
+    width: 10%;
+    height: 10%;
+    margin-top: -7.4%;
+    margin-left: 78%;
 
 }
 

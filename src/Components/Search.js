@@ -10,6 +10,8 @@ function Search() {
 */
     const [minValue, onMinChange] = useState(0);
     const [maxValue, onMaxChange] = useState(100);
+    const [minAge, onMinAge] = useState(0);
+    const [maxAge, onMaxAge] = useState(100);
     min = minValue
     max = maxValue
 
@@ -30,7 +32,7 @@ function Search() {
                 </select>
             </div>
 
-            <div className="min-slider">
+            <div className="salary-slider">
                 <b>Min. Salary</b>  <input type="range" min="0" max="100" value={minValue}
                     onChange={({ target: { value: radius } }) => {
                         onMinChange(radius);
@@ -50,6 +52,29 @@ function Search() {
 
                 <div className="buble">
                     <b>R{maxValue * 10000}</b>
+                </div>
+            </div>
+
+            <div className="age-slider">
+                <b>Born After:</b>  <input type="range" min="1950" max="2005" value={minAge}
+                    onChange={({ target: { value: radius } }) => {
+                        onMinAge(radius);
+                        displayResults();
+                    }}
+                />
+                <div className="buble">
+                    <b>{minAge}</b>
+                </div>
+
+                <b>Born Before:</b> <input type="range" min="1950" max="2005" value={maxAge}
+                    onChange={({ target: { value: radius } }) => {
+                        onMaxAge(radius);
+                        displayResults();
+                    }}
+                />
+
+                <div className="buble">
+                    <b>{maxAge}</b>
                 </div>
             </div>
         </div>
