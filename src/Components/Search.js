@@ -149,6 +149,10 @@ function displayResults() {
     }
     if(notFoundFlag)
     {
+        console.log(document.getElementsByTagName("h2"))
+    }
+
+    else{
         
     }
 }

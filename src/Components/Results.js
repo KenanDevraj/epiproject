@@ -93,7 +93,7 @@ function Results(input) {
                     )})}
             </ul>
             <ul className="employeeList" id="employeeList">
-                <h1 >Employees</h1>
+                <h1>Employees</h1>
 
                 {employees.map((em) => {
                     return (
@@ -129,6 +129,8 @@ function Results(input) {
                 }
                 )}
             </ul>
+
+            <h2>NOT FOUND</h2>
             
         </div>
     );
