@@ -2,7 +2,7 @@ import "./Results.css";
 import contact from "./contact.png";
 import arrow from "./mediumArrow.png"
 import React, { useState } from "react";
-import e from ".././employees.json";
+
 
 /**
  * Person object- represents an individual in this company
@@ -20,28 +20,59 @@ function Person(n, s, b, num, sal, rol, rep, child) {
 /**
  * Declare arrays to store Persons in arrays
  */
-var managers = []
-var employees = []
-var trainees = []
 
 
-function Results() {
 
+function Results(input) {
+console.log(input.input)
  /**
  * Retrieve data from database
  */
-    const [data] = useState(e);
-    managers = []
-    employees = []
-    trainees = []
-    populateArrays(data);
+    let data = input.input
+    var managers = []
+    var employees = []
+    var trainees = []
+   
+    //Populate Trainee array from "Database"
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].role === "Trainee") {
+            trainees.push(new Person(data[i].name, data[i].surname, data[i].birth, data[i].empNum,
+                data[i].salary, data[i].role, data[i].repLine, null))
+        }
+    }
+    //Populate Employee array from "Database"
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].role === "Employee") {
+            let empsTrainees = []
+            for (let j = 0; j < trainees.length; j++) {
+                if (data[i].empNum === trainees[j].repLine) {
+                    empsTrainees.push(trainees[j])
+                }
+            }
+            employees.push(new Person(data[i].name, data[i].surname, data[i].birth, data[i].empNum,
+                data[i].salary, data[i].role, data[i].repLine, empsTrainees))
+        }
+    }
+    //Populate Manager array from "Database"
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].role === "Manager") {
+            let managersEmps = []
+            for (let j = 0; j < employees.length; j++) {
+                if (employees[j].role === "Employee" && employees[j].repLine === data[i].empNum) {
+                    managersEmps.push(employees[j])
+                }
+            }
+            managers.push(new Person(data[i].name, data[i].surname, data[i].birth, data[i].empNum,
+                data[i].salary, data[i].role, data[i].repLine, managersEmps))
+        }
+    }
 
 /**
 * Use states to dynamically update the UI
 */
-    const [m, setManangers] = useState();
-    const [em, setEmployees] = useState();
-    const [tr, setTrainees] = useState(trainees);
+    // const [m, setManangers] = useState();
+    // const [em, setEmployees] = useState();
+    // const [tr, setTrainees] = useState(trainees);
 
 /**
 * Render the data in the arrays populated above
@@ -98,7 +129,7 @@ function Results() {
             <ul className="traineeList" id="traineeList">
                 <h1>TRAINEES</h1>
 
-                {tr.map((t) => {
+                {trainees.map((t) => {
 
                     return (
                         <div>
@@ -108,19 +139,7 @@ function Results() {
                 }
                 )}
             </ul>
-            <div>
-                <button onClick={() => {
-                    tr[0].name="t"
-                     setTrainees(tr)
-                     console.log(tr)
-                }}>
-                    Sort by Highest Earning
-                </button>
-
-                <button onClick={() => { sortDataDec(); }}>
-                    Sort by Lowest Earning
-                </button>
-            </div>
+            
         </div>
     );
 }
@@ -146,39 +165,7 @@ function updateResults(clickedObject) {
 * Populate arrays from the "Database with Persons"
 */
 function populateArrays(data) {
-    //Populate Trainee array from "Database"
-    for (let i = 0; i < data.length; i++) {
-        if (data[i].role === "Trainee") {
-            trainees.push(new Person(data[i].name, data[i].surname, data[i].birth, data[i].empNum,
-                data[i].salary, data[i].role, data[i].repLine, null))
-        }
-    }
-    //Populate Employee array from "Database"
-    for (let i = 0; i < data.length; i++) {
-        if (data[i].role === "Employee") {
-            let empsTrainees = []
-            for (let j = 0; j < trainees.length; j++) {
-                if (data[i].empNum === trainees[j].repLine) {
-                    empsTrainees.push(trainees[j])
-                }
-            }
-            employees.push(new Person(data[i].name, data[i].surname, data[i].birth, data[i].empNum,
-                data[i].salary, data[i].role, data[i].repLine, empsTrainees))
-        }
-    }
-    //Populate Manager array from "Database"
-    for (let i = 0; i < data.length; i++) {
-        if (data[i].role === "Manager") {
-            let managersEmps = []
-            for (let j = 0; j < employees.length; j++) {
-                if (employees[j].role === "Employee" && employees[j].repLine === data[i].empNum) {
-                    managersEmps.push(employees[j])
-                }
-            }
-            managers.push(new Person(data[i].name, data[i].surname, data[i].birth, data[i].empNum,
-                data[i].salary, data[i].role, data[i].repLine, managersEmps))
-        }
-    }
+
 }
 
 function sortDataAce(traineesArr, setTrainees) {
@@ -196,11 +183,11 @@ function sortDataAce(traineesArr, setTrainees) {
     //             //     // managerArray[j + 1].salary = tmp;
 }
 
-function sortDataDec() {
-    console.log(managers)
-    console.log(employees)
-    console.log(trainees)
-}
+// function sortDataDec() {
+//     console.log(managers)
+//     console.log(employees)
+//     console.log(trainees)
+// }
 
 
 function reloadWindow() {
