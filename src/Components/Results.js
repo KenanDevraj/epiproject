@@ -1,7 +1,7 @@
 import "./Results.css";
 import contact from "./contact.png";
 import arrow from "./mediumArrow.png"
-import React, { useState } from "react";
+import React from "react";
 
 
 /**
@@ -65,17 +65,9 @@ function Results(input) {
                 data[i].salary, data[i].role, data[i].repLine, managersEmps))
         }
     }
-
 /**
-* Use states to dynamically update the UI
-*/
-    // const [m, setManangers] = useState();
-    // const [em, setEmployees] = useState();
-    // const [tr, setTrainees] = useState(trainees);
-
-/**
-* Render the data in the arrays populated above
-*/
+ * Render the data in the arrays populated above
+ */
     return (
         <div className="displayResults">
             <ul className="managerList" id="managerList">
@@ -83,15 +75,15 @@ function Results(input) {
                 {managers.map((manager) => {
                     return (
                         <div>
-                            <li><p onClick={() => { updateResults(manager); }} title={[manager.salary,manager.birth]} className="managerChip"><img src={contact} />{manager.empNum} - [{manager.role}] {manager.name} {manager.surname} {manager.birth} R{manager.salary}</p>
+                            <li><p onClick={() => { updateResults(manager); }} title={[manager.salary, manager.birth]} className="managerChip"><img src={contact} alt="IMG not found!" />{manager.empNum} - [{manager.role}] {manager.name} {manager.surname} {manager.birth} R{manager.salary}</p>
                                 {manager.children.map((e) => {
                                     return (
                                         <div id={e.empNum} className="manEmployees">
-                                            <img className="arrow" src={arrow} /><p title={e.salary} className="empChip"><img src={contact} />{e.empNum} -[{e.role}] {e.name} {e.surname} {e.birth} R{e.salary}</p>
+                                            <img className="arrow" src={arrow} alt="IMG not found!" /><p title={e.salary} className="empChip"><img src={contact} alt="IMG not found!" />{e.empNum} -[{e.role}] {e.name} {e.surname} {e.birth} R{e.salary}</p>
                                             {e.children.map((t) => {                                         
                                                 return (
                                                     <div className="manEmployees">
-                                                        <img className="arrow" src={arrow} /> <p title={t.salary} className="traineeChip"><img src={contact} />{t.empNum} - [{t.role}] {t.name} {t.surname} {t.birth} R{t.salary}</p>
+                                                        <img className="arrow" src={arrow} alt="IMG not found!" /> <p title={t.salary} className="traineeChip"><img src={contact} alt="IMG not found!" />{t.empNum} - [{t.role}] {t.name} {t.surname} {t.birth} R{t.salary}</p>
                                                     </div>
                                                 )})}
                                         </div>
@@ -106,13 +98,13 @@ function Results(input) {
                 {employees.map((em) => {
                     return (
                         <div>
-                            <li  ><p onClick={() => { updateResults(em); }} title={em.salary} className="empChip"><img src={contact} />{em.empNum} - [{em.role}] {em.name} {em.surname} {em.birth} R{em.salary}</p>
+                            <li  ><p onClick={() => { updateResults(em); }} title={em.salary} className="empChip"><img src={contact} alt="IMG not found!" />{em.empNum} - [{em.role}] {em.name} {em.surname} {em.birth} R{em.salary}</p>
 
                                 {em.children.map((t) => {
                                     let uniqueID = "EMP" + t.empNum
                                     return (
                                         <div id={uniqueID} className="manEmployees" >
-                                            <img className="arrow" src={arrow} /><p title={t.salary} className="traineeChip"><img src={contact} />{t.empNum} - [{t.role}] {t.name} {t.surname} {t.birth} R{t.salary}</p>
+                                            <img className="arrow" src={arrow} alt="IMG not found!" /><p title={t.salary} className="traineeChip"><img src={contact} alt="IMG not found!" />{t.empNum} - [{t.role}] {t.name} {t.surname} {t.birth} R{t.salary}</p>
                                         </div>
                                     )
 
@@ -128,11 +120,10 @@ function Results(input) {
             <ul className="traineeList" id="traineeList">
                 <h1>Trainees</h1>
 
-                {trainees.map((t) => {
-
+                {trainees.map((t) => {                   
                     return (
                         <div>
-                            <li><p title={[t.salary, t.birth]} className="traineeChip"><img src={contact} />{t.empNum} - [{t.role}] {t.name} {t.surname} {t.birth} R{t.salary}</p></li>
+                            <li><p title={[t.salary, t.birth]} className="traineeChip"><img src={contact} alt="IMG not found!" />{t.empNum} - [{t.role}] {t.name} {t.surname} {t.birth} R{t.salary}</p></li>
                         </div>
                     )
                 }
@@ -160,41 +151,6 @@ function updateResults(clickedObject) {
     }
 }
 
-/**
-* Populate arrays from the "Database with Persons"
-*/
-function populateArrays(data) {
-
-}
-
-function sortDataAce(traineesArr, setTrainees) {
-    console.log(traineesArr[0].name)
-    traineesArr[0].name = "HELLO"
-    console.log(traineesArr[0].name)
-    setTrainees(traineesArr)
-    // for (let i = 0; i < managerArray.length; i++) {
-    //     for (let j = 0; j < managerArray.length; j++) {
-
-    //         if (parseInt(managerArray[j].salary) > parseInt(managerArray[j+1].salary)) {
-    //             //     console.log(managerArray[j+1].salary)
-    //             //     // let tmp = managerArray[j].salary;
-    //             //     // managerArray[j].salary = managerArray[j + 1].salary;
-    //             //     // managerArray[j + 1].salary = tmp;
-}
-
-// function sortDataDec() {
-//     console.log(managers)
-//     console.log(employees)
-//     console.log(trainees)
-// }
-
-
-function reloadWindow() {
-    if (!window.location.hash) {
-        // window.location = window.location + '#loaded';
-
-    }
-}
 
 
 

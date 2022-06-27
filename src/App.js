@@ -4,6 +4,7 @@ import Search from "./Components/Search";
 import Results from "./Components/Results";
 import Logo from "./Components/epi.jpg"
 import defaultData from "./employees.json";
+import displayResults from "./Components/Search";
 
 /**
 * Root function where all Components are rendered
@@ -54,12 +55,14 @@ function App() {
       <div>
         <button class="button-27" onClick={() => {
           sortByLowest(currentData)
+          displayResults()
         }}>
           Sort by Lowest Earning
         </button>
 
         <button class="button-27" onClick={() => {
           sortByHighest(currentData)
+          displayResults()
         }}>
           Sort by Highest Earning
         </button>

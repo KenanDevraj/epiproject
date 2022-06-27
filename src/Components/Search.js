@@ -22,8 +22,11 @@ function Search() {
                 <input className="search" id="userInput" type="text" onKeyUp={displayResults} placeholder="Search..." />
                 <div className="roleSelectorBlock">
                     <b>Filter by Role:</b>
-                    <select id="roleType" className="roleSelector">
-                        <option>All</option>
+                    <select onChange={({ target: { value: radius } }) => {
+                        // console("Hello WORld")
+                         displayResults();
+                    }} id="roleType" className="roleSelector">
+                        <option >All</option>
                         <option>Managers</option>
                         <option>Employees</option>
                         <option>Trainees</option>
