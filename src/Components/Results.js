@@ -24,7 +24,6 @@ function Person(n, s, b, num, sal, rol, rep, child) {
 
 
 function Results(input) {
-console.log(input.input)
  /**
  * Retrieve data from database
  */
@@ -127,7 +126,7 @@ console.log(input.input)
                 )}
             </ul>
             <ul className="traineeList" id="traineeList">
-                <h1>TRAINEES</h1>
+                <h1>Trainees</h1>
 
                 {trainees.map((t) => {
 
