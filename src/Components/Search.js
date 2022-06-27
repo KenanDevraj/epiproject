@@ -1,13 +1,30 @@
 import React, { useState } from "react";
+import Calendar from 'react-calendar'
+import 'react-calendar/dist/Calendar.css';
+import moment from 'moment'
 
 import "./Search.css";
 
 let min, max, minA, maxA
+let currDate;
 
 function Search() {
+
+    const [dateState, setDateState] = useState(new Date())
+    currDate = dateState
+    const changeDate = (e) => {
+        setDateState(e)
+        currDate = e
+        displayResults()
+       
+        
+    }
+    
 /**
 * Use states to update the UI of the range selectors
 */
+  
+
     const [minValue, onMinChange] = useState(0);
     const [maxValue, onMaxChange] = useState(100);
     const [minAge, onMinAge] = useState(0);
@@ -33,6 +50,17 @@ function Search() {
                     </select>
                 </div>
 
+                <div className="dateSelectorBlock">
+                    <select onChange={({ target: { value: radius } }) => {
+                      
+                        displayResults();
+                    }} id="dateSelector" className="dateSelector">
+                        <option>Disabled</option>
+                        <option>Born Before</option>
+                        <option>Born After</option>
+                    </select>
+                </div>
+
                 <div className="salary-slider">
                     <b>Min. Salary</b>  <input type="range" min="0" max="100" value={minValue}
                         onChange={({ target: { value: radius } }) => {
@@ -43,7 +71,6 @@ function Search() {
                     <div className="buble">
                         <b>R{minValue * 10000}</b>
                     </div>
-
                     <b>Max. Salary</b> <input type="range" min="0" max="100" value={maxValue}
                         onChange={({ target: { value: radius } }) => {
                             onMaxChange(radius);
@@ -57,26 +84,12 @@ function Search() {
                 </div>
 
                 <div className="age-slider">
-                    <b>Born After:</b>  <input type="range" min="1950" max="2005" value={minAge}
-                        onChange={({ target: { value: radius } }) => {
-                            onMinAge(radius);
-                            displayResults();
-                        }}
+                    <Calendar
+                        value={dateState}
+                        onChange={changeDate}      
                     />
-                    <div className="buble">
-                        <b>{minAge}</b>
-                    </div>
-
-                    <b>Born Before:</b> <input type="range" min="1950" max="2005" value={maxAge}
-                        onChange={({ target: { value: radius } }) => {
-                            onMaxAge(radius);
-                            displayResults();
-                        }}
-                    />
-
-                    <div className="buble">
-                        <b>{maxAge}</b>
-                    </div>
+                    <p>Current selected date is <b>{moment(dateState).format('MMMM Do YYYY')}</b></p>
+                    
                 </div>
             </div>
         )
@@ -88,12 +101,12 @@ function Search() {
   
 }
 
+
 /**
 * Update the displayed data when a user performs searches
 */
 let lists = ["managerList", "employeeList", "traineeList"]
 function displayResults() {
-
 
     for (let b = 0; b < lists.length; b++) {
         var input, filter, ul, li, a, i, txtValue;
@@ -104,16 +117,14 @@ function displayResults() {
         ul = document.getElementById(lists[b]);
 
         li = ul.getElementsByTagName("li");
-        console.log()
         for (i = 0; i < li.length; i++) {
             a = li[i].getElementsByTagName("p")[0];
             txtValue = a.textContent || a.innerText;
             let filteringValues = a.title.split(",")
             let salary = filteringValues[0]
             let birth = filteringValues[1]
-            console.log(birth)
             if (txtValue.toUpperCase().indexOf(filter) > -1 && checkRoleType(txtValue)
-                && min * 10000 < salary && (max === 0 || max * 10000 > salary)) {
+                && min * 10000 < salary && checkDate(currDate,birth)&& (max === 0 || max * 10000 > salary)) {
                 li[i].style.display = "";
                 headerFlag = true;
             } else {
@@ -129,6 +140,32 @@ function displayResults() {
             header.style.display = "none"
         }
     }
+}
+
+function checkDate(selectedDate,empDate)
+{
+    console.log(selectedDate)
+    console.log(selectedDate.getDate())
+    console.log(selectedDate.getMonth()+1)
+    console.log(selectedDate.getFullYear())
+
+    let empDateArray= empDate.split("-")
+    // console.log(empDateArray)
+    console.log(document.getElementById("dateSelector").value)
+
+    if (document.getElementById("dateSelector").value==="Disabled")
+    {
+        return true;
+    }
+    else if (document.getElementById("dateSelector").value === "Born After")
+    {
+        if (parseInt(empDateArray[2]) > selectedDate.getFullYear()) {
+            return true;
+        }
+    }
+     
+
+    return false;
 }
 /**
 * Update Data when a user selects a role type
@@ -156,3 +193,27 @@ function checkRoleType(txtValue) {
 }
 export default Search
 
+
+
+
+    // < div className = "age-slider" >
+    //                 <b>Born After:</b>  <input type="range" min="1950" max="2005" value={minAge}
+    //                     onChange={({ target: { value: radius } }) => {
+    //                         onMinAge(radius);
+    //                         displayResults();
+    //                     }}
+    //                 />
+    //                 <div className="buble">
+    //                     <b>{minAge}</b>
+    //                 </div>
+
+    //                 <b>Born Before:</b> <input type="range" min="1950" max="2005" value={maxAge}
+    //                     onChange={({ target: { value: radius } }) => {
+    //                         onMaxAge(radius);
+    //                         displayResults();
+    //                     }}
+    //                 />
+
+    //                 <div className="buble">
+    //                     <b>{maxAge}</b>
+    //                 </div>

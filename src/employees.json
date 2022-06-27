@@ -10,90 +10,88 @@
     },
 
     {
-        "name": "Bella",
-        "surname": "Devraj",
-        "birth": "18-02-2001",
+        "name": "Ash",
+        "surname": "Govender",
+        "birth": "23-10-1999",
         "empNum": "2",
+        "salary": "900000",
+        "role": "Manager",
+        "repLine": "None"
+    },
+
+    {
+        "name": "John",
+        "surname": "Daniels",
+        "birth": "20-03-1989",
+        "empNum": "3",
+        "salary": "800000",
+        "role": "Manager",
+        "repLine": "None"
+    },
+
+    {
+        "name": "Barney",
+        "surname": "Stinson",
+        "birth": "01-01-1992",
+        "empNum": "21",
         "salary": "200000",
         "role": "Employee",
         "repLine": "1"
+    },
+    {
+        "name": "Robin",
+        "surname": "Sherb",
+        "birth": "04-03-1997",
+        "empNum": "22",
+        "salary": "350000",
+        "role": "Employee",
+        "repLine": "2"
+    },
+    {
+        "name": "Matt",
+        "surname":"Davidson",
+        "birth": "08-05-1989",
+        "empNum": "23",
+        "salary": "200000",
+        "role": "Employee",
+        "repLine": "3"
+    },
+    {
+        "name": "Lily",
+        "surname": "Aldrin",
+        "birth": "18-02-2001",
+        "empNum": "24",
+        "salary": "300000",
+        "role": "Employee",
+        "repLine": "3"
     },
 
     {
         "name": "Gabby",
         "surname": "Devraj",
         "birth": "18-02-2001",
-        "empNum": "3",
+        "empNum": "101",
         "salary": "100000",
         "role": "Trainee",
-        "repLine": "2"
+        "repLine": "21"
     },
-
     {
         "name": "Carla",
         "surname": "Devraj",
         "birth": "18-02-2001",
-        "empNum": "4",
+        "empNum": "102",
         "salary": "100000",
         "role": "Trainee",
-        "repLine": "2"
+        "repLine": "21"
     },
-
     {
         "name": "Ethan",
         "surname": "Devraj",
         "birth": "18-02-2001",
-        "empNum": "70",
+        "empNum": "103",
         "salary": "150000",
         "role": "Trainee",
-        "repLine": "6"
-    },
-
-    {
-        "name": "Wesly",
-        "surname": "Devraj",
-        "birth": "18-02-2001",
-        "empNum": "5",
-        "salary": "350000",
-        "role": "Employee",
-        "repLine": "6"
-    },
-
-    {
-        "name": "Ash",
-        "surname": "Govender",
-        "birth": "18-02-2001",
-        "empNum": "6",
-        "salary": "900000",
-        "role": "Manager",
-        "repLine": "None"
-    },
-    {
-        "name": "John",
-        "surname": "Govender",
-        "birth": "18-02-2001",
-        "empNum": "7",
-        "salary": "800000",
-        "role": "Manager",
-        "repLine": "None"
-    },
-    {
-        "name": "Hazel",
-        "surname": "Govender",
-        "birth": "18-02-2001",
-        "empNum": "8",
-        "salary": "200000",
-        "role": "Employee",
-        "repLine": "7"
-    },
-    {
-        "name": "David",
-        "surname": "Govender",
-        "birth": "18-02-2001",
-        "empNum": "6",
-        "salary": "300000",
-        "role": "Employee",
-        "repLine": "7"
+        "repLine": "22"
     }
 
 ]

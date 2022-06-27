@@ -20,7 +20,7 @@ img {
 /* CSS */
 .button-27 {
   appearance: none;
-  background-color: #8f9299;
+  background-color: #6f7072;
   border: 2px solid #1A1A1A;
   border-radius: 15px;
   box-sizing: border-box;
@@ -36,7 +36,7 @@ img {
   min-width: 0;
   outline: none;
   padding: 16px 24px;
-  text-align: center;
+  /* text-align: center; */
   text-decoration: none;
   transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
   user-select: none;
@@ -44,6 +44,8 @@ img {
   touch-action: manipulation;
   width: 25%;
   will-change: transform;
+  margin-top: -200%;
+  
 }
 
 .button-27:disabled {
@@ -58,4 +60,9 @@ img {
 .button-27:active {
   box-shadow: none;
   transform: translateY(0);
+}
+
+.buttonContainer{
+  /* border: #2a3 solid 3px; */
+  margin-top:-8% ;
 }

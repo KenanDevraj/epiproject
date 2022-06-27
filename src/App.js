@@ -52,7 +52,7 @@ function App() {
     <div className="App">
       <img src={Logo} />
       <Search />
-      <div>
+      <div className="buttonContainer">
         <button class="button-27" onClick={() => {
           sortByLowest(currentData)
           displayResults()

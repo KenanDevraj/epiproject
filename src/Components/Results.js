@@ -98,7 +98,7 @@ function Results(input) {
                 {employees.map((em) => {
                     return (
                         <div>
-                            <li  ><p onClick={() => { updateResults(em); }} title={em.salary} className="empChip"><img src={contact} alt="IMG not found!" />{em.empNum} - [{em.role}] {em.name} {em.surname} {em.birth} R{em.salary}</p>
+                            <li  ><p onClick={() => { updateResults(em); }} title={[em.salary, em.birth]} className="empChip"><img src={contact} alt="IMG not found!" />{em.empNum} - [{em.role}] {em.name} {em.surname} {em.birth} R{em.salary}</p>
 
                                 {em.children.map((t) => {
                                     let uniqueID = "EMP" + t.empNum
@@ -150,41 +150,3 @@ function updateResults(clickedObject) {
         } else hideDiv.style.display = "";
     }
 }
-
-
-
-
-//TABLE OF ENTRIES
-
-{/* <div class="displayResults">
-    <table class="content">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Surname</th>
-                <th>Date of Birth</th>
-                <th>Employee No.</th>
-                <th>Salary</th
-                <th>Role</th>
-                <th>Reporting Line</th>
-            </tr>
-        </thead>
-        <tbody>
-
-            {managers.map((value) => {
-                return (
-                    <tr>
-                        <td>{value.name}</td>
-                        <td>{value.surname}</td>
-                        <td>{value.birth}</td>
-
-                    </tr>
-
-
-                )
-            })}
-
-
-        </tbody>
-    </table>
-</div> */}
