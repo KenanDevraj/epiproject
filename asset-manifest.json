@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/epiproject/static/css/main.5a14790a.css",
+    "main.js": "/epiproject/static/js/main.59d994bf.js",
+    "static/js/787.1b322229.chunk.js": "/epiproject/static/js/787.1b322229.chunk.js",
+    "index.html": "/epiproject/index.html",
+    "main.5a14790a.css.map": "/epiproject/static/css/main.5a14790a.css.map",
+    "main.59d994bf.js.map": "/epiproject/static/js/main.59d994bf.js.map",
+    "787.1b322229.chunk.js.map": "/epiproject/static/js/787.1b322229.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5a14790a.css",
+    "static/js/main.59d994bf.js"
+  ]
+}
