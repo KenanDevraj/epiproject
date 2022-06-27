@@ -4,8 +4,10 @@ import arrow from "./mediumArrow.png"
 import React, { useState } from "react";
 import e from ".././employees.json";
 
-
-function person(n, s, b, num, sal, rol, rep, child) {
+/**
+ * Person object- represents an individual in this company
+ */
+function Person(n, s, b, num, sal, rol, rep, child) {
     this.name = n;
     this.surname = s;
     this.birth = b;
@@ -27,19 +29,17 @@ var trainees = []
 function Results() {
 
     const [data] = useState(e);
-    const [m, setManangers] = useState([]);
-    const [em, setEmployees] = useState([]);
-    const [t, setTrainees] = useState([]);
+ 
     managers = []
     employees = []
     trainees = []
     populateArrays(data);
 
-    //    setTrainees(trainees);
-    //    console.log(t)
+    const [m, setManangers] = useState();
+    const [em, setEmployees] = useState();
+    const [tr, setTrainees] = useState(trainees);
 
-
-    // setTrainees(trainees)
+    console.log(tr)
 
 
     return (
@@ -121,9 +121,9 @@ function Results() {
 
             <div>
                 <button onClick={() => {
-                    console.log("HEllo");
-                    console.log(t);
-                    //  setTrainees(trainees)
+                    tr[0].name="BITCHBOT"
+                     setTrainees(tr)
+                     console.log(tr)
                 }}>
                     Sort by Highest Earning
                 </button>
@@ -167,7 +167,7 @@ function populateArrays(data) {
     //Populate Trainee array from "Database"
     for (let i = 0; i < data.length; i++) {
         if (data[i].role === "Trainee") {
-            trainees.push(new person(data[i].name, data[i].surname, data[i].birth, data[i].empNum,
+            trainees.push(new Person(data[i].name, data[i].surname, data[i].birth, data[i].empNum,
                 data[i].salary, data[i].role, data[i].repLine, null))
         }
 
@@ -182,7 +182,7 @@ function populateArrays(data) {
                     empsTrainees.push(trainees[j])
                 }
             }
-            employees.push(new person(data[i].name, data[i].surname, data[i].birth, data[i].empNum,
+            employees.push(new Person(data[i].name, data[i].surname, data[i].birth, data[i].empNum,
                 data[i].salary, data[i].role, data[i].repLine, empsTrainees))
 
         }
@@ -196,7 +196,7 @@ function populateArrays(data) {
                     managersEmps.push(employees[j])
                 }
             }
-            managers.push(new person(data[i].name, data[i].surname, data[i].birth, data[i].empNum,
+            managers.push(new Person(data[i].name, data[i].surname, data[i].birth, data[i].empNum,
                 data[i].salary, data[i].role, data[i].repLine, managersEmps))
         }
     }
