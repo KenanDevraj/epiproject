@@ -1,0 +1,49 @@
+.search {
+    background-color: white;
+    border: 0;
+    border-radius: 20px;
+    font-size: 18px;
+    padding: 15px;
+    height: 30px;
+    width: 25%;
+    margin-bottom: -50%;
+    margin-left: 15%;
+    position: absolute;
+
+}
+
+.roleSelectorBlock {
+
+    width: 18%;
+    height: 20%;
+    margin-top: -4%;
+    margin-left: 50%;
+    position: relative;
+
+}
+
+.roleSelector {
+
+    width: 50%;
+    height: 20%;
+    position: relative;
+    font-size: 20px;
+}
+
+
+.min-slider {
+    position: relative;
+    width: 10%;
+    height: 10%;
+    margin-top: -3%;
+    margin-left: 65%;
+
+}
+
+.buble {
+    position: relative;
+}
+
+b {
+    color: #ffffff;
+}
