@@ -88,8 +88,7 @@ function Search() {
                         value={dateState}
                         onChange={changeDate}      
                     />
-                    <p>Current selected date is <b>{moment(dateState).format('MMMM Do YYYY')}</b></p>
-                    
+                    <p><b>{moment(dateState).format('MMMM Do YYYY')}</b></p>                  
                 </div>
             </div>
         )
@@ -100,8 +99,6 @@ function Search() {
 */
   
 }
-
-
 /**
 * Update the displayed data when a user performs searches
 */
@@ -124,7 +121,7 @@ function displayResults() {
             let salary = filteringValues[0]
             let birth = filteringValues[1]
             if (txtValue.toUpperCase().indexOf(filter) > -1 && checkRoleType(txtValue)
-                && min * 10000 < salary && checkDate(currDate,birth)&& (max === 0 || max * 10000 > salary)) {
+                && min * 10000 < salary && checkDate(currDate,birth)&&(max === 0 || max * 10000 > salary)) {
                 li[i].style.display = "";
                 headerFlag = true;
             } else {
@@ -140,31 +137,52 @@ function displayResults() {
             header.style.display = "none"
         }
     }
+
+    let headers = document.getElementsByTagName("h1");
+    let notFoundFlag = false;
+    for(let c = 0 ; c<headers.length ; c++)
+    {
+        if (headers[c].style.display!=="none")
+        {
+            notFoundFlag = true;
+        }
+    }
+    if(notFoundFlag)
+    {
+        
+    }
 }
 
 function checkDate(selectedDate,empDate)
 {
-    console.log(selectedDate)
-    console.log(selectedDate.getDate())
-    console.log(selectedDate.getMonth()+1)
-    console.log(selectedDate.getFullYear())
+    // console.log(selectedDate)
+    // console.log(selectedDate.getDate())
+    // console.log(selectedDate.getMonth()+1)
+    // console.log(selectedDate.getFullYear())
 
-    let empDateArray= empDate.split("-")
-    // console.log(empDateArray)
-    console.log(document.getElementById("dateSelector").value)
-
+    let empDateArray = empDate.split("-");
     if (document.getElementById("dateSelector").value==="Disabled")
     {
         return true;
     }
-    else if (document.getElementById("dateSelector").value === "Born After")
+    else if (document.getElementById("dateSelector").value === "Born Before")
     {
-        if (parseInt(empDateArray[2]) > selectedDate.getFullYear()) {
+        if (parseInt(empDateArray[2]) < selectedDate.getFullYear() 
+        // && parseInt(empDateArray[1]) < selectedDate.getMonth() + 1 &&
+        //     parseInt(empDateArray[0]) < selectedDate.getDate()
+            ) {
             return true;
         }
     }
-     
 
+    else if (document.getElementById("dateSelector").value === "Born After") {
+        if (parseInt(empDateArray[2]) > selectedDate.getFullYear()
+        //  &&parseInt(empDateArray[1]) > selectedDate.getMonth() + 1 &&
+        //     parseInt(empDateArray[0]) > selectedDate.getDate()
+            ) {
+            return true;
+        }
+    }
     return false;
 }
 /**
