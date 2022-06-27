@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import "./Search.css";
 
-let min, max
+let min, max, minA, maxA
 
 function Search() {
 /**
@@ -14,71 +14,75 @@ function Search() {
     const [maxAge, onMaxAge] = useState(100);
     min = minValue
     max = maxValue
+    minA=minAge
+    maxA=maxAge
+
+        return (
+            <div>
+                <input className="search" id="userInput" type="text" onKeyUp={displayResults} placeholder="Search..." />
+                <div className="roleSelectorBlock">
+                    <b>Filter by Role:</b>
+                    <select id="roleType" className="roleSelector">
+                        <option>All</option>
+                        <option>Managers</option>
+                        <option>Employees</option>
+                        <option>Trainees</option>
+                    </select>
+                </div>
+
+                <div className="salary-slider">
+                    <b>Min. Salary</b>  <input type="range" min="0" max="100" value={minValue}
+                        onChange={({ target: { value: radius } }) => {
+                            onMinChange(radius);
+                            displayResults();
+                        }}
+                    />
+                    <div className="buble">
+                        <b>R{minValue * 10000}</b>
+                    </div>
+
+                    <b>Max. Salary</b> <input type="range" min="0" max="100" value={maxValue}
+                        onChange={({ target: { value: radius } }) => {
+                            onMaxChange(radius);
+                            displayResults();
+                        }}
+                    />
+
+                    <div className="buble">
+                        <b>R{maxValue * 10000}</b>
+                    </div>
+                </div>
+
+                <div className="age-slider">
+                    <b>Born After:</b>  <input type="range" min="1950" max="2005" value={minAge}
+                        onChange={({ target: { value: radius } }) => {
+                            onMinAge(radius);
+                            displayResults();
+                        }}
+                    />
+                    <div className="buble">
+                        <b>{minAge}</b>
+                    </div>
+
+                    <b>Born Before:</b> <input type="range" min="1950" max="2005" value={maxAge}
+                        onChange={({ target: { value: radius } }) => {
+                            onMaxAge(radius);
+                            displayResults();
+                        }}
+                    />
+
+                    <div className="buble">
+                        <b>{maxAge}</b>
+                    </div>
+                </div>
+            </div>
+        )
+    
 
 /**
 * Render the Search component
 */
-
-    return (
-        <div>
-            <input className="search" id="userInput" type="text" onKeyUp={displayResults} placeholder="Search..." />
-            <div className="roleSelectorBlock">
-                <b>Filter by Role:</b>
-                <select id="roleType" className="roleSelector">
-                    <option>All</option>
-                    <option>Managers</option>
-                    <option>Employees</option>
-                    <option>Trainees</option>
-                </select>
-            </div>
-
-            <div className="salary-slider">
-                <b>Min. Salary</b>  <input type="range" min="0" max="100" value={minValue}
-                    onChange={({ target: { value: radius } }) => {
-                        onMinChange(radius);
-                        displayResults();
-                    }}
-                />
-                <div className="buble">
-                    <b>R{minValue * 10000}</b>
-                </div>
-
-                <b>Max. Salary</b> <input type="range" min="0" max="100" value={maxValue}
-                    onChange={({ target: { value: radius } }) => {
-                        onMaxChange(radius);
-                        displayResults();
-                    }}
-                />
-
-                <div className="buble">
-                    <b>R{maxValue * 10000}</b>
-                </div>
-            </div>
-
-            <div className="age-slider">
-                <b>Born After:</b>  <input type="range" min="1950" max="2005" value={minAge}
-                    onChange={({ target: { value: radius } }) => {
-                        onMinAge(radius);
-                        displayResults();
-                    }}
-                />
-                <div className="buble">
-                    <b>{minAge}</b>
-                </div>
-
-                <b>Born Before:</b> <input type="range" min="1950" max="2005" value={maxAge}
-                    onChange={({ target: { value: radius } }) => {
-                        onMaxAge(radius);
-                        displayResults();
-                    }}
-                />
-
-                <div className="buble">
-                    <b>{maxAge}</b>
-                </div>
-            </div>
-        </div>
-    )
+  
 }
 
 /**
@@ -104,6 +108,7 @@ function displayResults() {
             let filteringValues = a.title.split(",")
             let salary = filteringValues[0]
             let birth = filteringValues[1]
+            console.log(birth)
             if (txtValue.toUpperCase().indexOf(filter) > -1 && checkRoleType(txtValue)
                 && min * 10000 < salary && (max === 0 || max * 10000 > salary)) {
                 li[i].style.display = "";
@@ -147,3 +152,4 @@ function checkRoleType(txtValue) {
     else return false;
 }
 export default Search
+

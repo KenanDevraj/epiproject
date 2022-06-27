@@ -53,7 +53,7 @@ function Results() {
                 {managers.map((manager) => {
                     return (
                         <div>
-                            <li><p onClick={() => { updateResults(manager); }} title={manager.salary} className="managerChip"><img src={contact} />{manager.empNum} - [{manager.role}] {manager.name} {manager.surname} {manager.birth} R{manager.salary}</p>
+                            <li><p onClick={() => { updateResults(manager); }} title={[manager.salary,manager.birth]} className="managerChip"><img src={contact} />{manager.empNum} - [{manager.role}] {manager.name} {manager.surname} {manager.birth} R{manager.salary}</p>
                                 {manager.children.map((e) => {
                                     return (
                                         <div id={e.empNum} className="manEmployees">
@@ -108,7 +108,6 @@ function Results() {
                 }
                 )}
             </ul>
-
             <div>
                 <button onClick={() => {
                     tr[0].name="t"
@@ -135,7 +134,6 @@ function updateResults(clickedObject) {
     if (clickedObject.role === "Employee") {
         temp = "EMP";
     }
-
     for (let a = 0; a < clickedObject.children.length; a++) {
         let hideDiv = document.getElementById(temp + clickedObject.children[a].empNum)
         if (hideDiv.style.display !== "none") {
@@ -196,10 +194,6 @@ function sortDataAce(traineesArr, setTrainees) {
     //             //     // let tmp = managerArray[j].salary;
     //             //     // managerArray[j].salary = managerArray[j + 1].salary;
     //             //     // managerArray[j + 1].salary = tmp;
-
-
-
-
 }
 
 function sortDataDec() {
