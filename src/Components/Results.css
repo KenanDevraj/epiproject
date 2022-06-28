@@ -45,7 +45,6 @@ input.Search:hover {
     position: absolute;
     width: 70%;
     font-family: sans-serif;
-    border:  2px solid green;
 }
 
 
@@ -185,10 +184,8 @@ h1{
     color: #ffffff;
     text-decoration: underline;
     font-size: 120%;
-
 }
 
 h2{
     display: none;
-
 }

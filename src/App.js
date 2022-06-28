@@ -54,17 +54,17 @@ function App() {
   }
   return (
     <div className="App">
-      <img src={Logo} />
+      <img src={Logo} alt="NOT FOUND" />
       <Search />
       <div className="buttonContainer">
-        <button class="button-27" onClick={() => {
+        <button class="sortingButtons" onClick={() => {
           sortByLowest(currentData)
           displayResults()
         }}>
           Sort by Lowest Earning
         </button>
 
-        <button class="button-27" onClick={() => {
+        <button class="sortingButtons" onClick={() => {
           sortByHighest(currentData)
           displayResults()
         }}>

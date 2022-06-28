@@ -5,7 +5,7 @@ import moment from 'moment'
 
 import "./Search.css";
 
-let min, max, minA, maxA
+let min, max
 let currDate;
 
 function Search() {
@@ -25,12 +25,8 @@ function Search() {
 */
     const [minValue, onMinChange] = useState(0);
     const [maxValue, onMaxChange] = useState(100);
-    const [minAge, onMinAge] = useState(0);
-    const [maxAge, onMaxAge] = useState(100);
     min = minValue
     max = maxValue
-    minA=minAge
-    maxA=maxAge
 
         return (
             <div className="filters">

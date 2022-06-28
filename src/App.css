@@ -16,9 +16,7 @@ img {
   width: 120px;
 }
 
-
-/* CSS */
-.button-27 {
+.sortingButtons {
   appearance: none;
   background-color: #6f7072;
   border: 2px solid #1A1A1A;
@@ -36,7 +34,6 @@ img {
   min-width: 0;
   outline: none;
   padding: 16px 24px;
-  /* text-align: center; */
   text-decoration: none;
   transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
   user-select: none;
@@ -45,25 +42,23 @@ img {
   width: 20%;
   will-change: transform;
   margin-top: -150%;
-  
 }
 
-.button-27:disabled {
+.sortingButtons:disabled {
   pointer-events: none;
 }
 
-.button-27:hover {
+.sortingButtons:hover {
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   transform: translateY(-2px);
   cursor: pointer;
 }
 
-.button-27:active {
+.sortingButtons:active {
   box-shadow: none;
   transform: translateY(0);
 }
 
 .buttonContainer{
-  /* border: #2a3 solid 3px; */
   margin-top:-7% ;
 }

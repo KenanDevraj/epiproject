@@ -1,6 +1,5 @@
 .filters {
     margin-top: -10%;
-
 }
 .search {
     background-color: white;
@@ -34,14 +33,15 @@
 }
 .dateSelectorBlock {
     top: 47%;
-    left: 65%;
+    left: 72%;
     width: 20%;
     height: 25%;
     position: absolute;
   
 }
 .dateSelector{
-    right: 10%;
+    right: 8%;
+    top: 5%;
     border-radius: 10px;
     width: 50%;
     height: 20%;
@@ -63,21 +63,19 @@
     width: 30%;
     height: 0.5%;
     margin-top: -7.0%;
-    margin-left: 65%;
+    margin-left: 70%;
     border-radius: 25px;
-
 }
 .calendarText
 {
-    top: 0%;
-    margin-left: 75%;
-    width: 20%;
+    margin-top: 2%;
+    margin-left: 84%;
+    width: 10%;
 }
 
 .buble {
     position: relative;
 }
-
 b {
     color: #ffffff;
 }
