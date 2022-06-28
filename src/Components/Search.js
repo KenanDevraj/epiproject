@@ -131,22 +131,25 @@ function displayResults() {
     }
 
     let headers = document.getElementsByTagName("h1");
-    let notFoundFlag = false;
+    let notFoundFlag = true;
     for(let c = 0 ; c<headers.length ; c++)
     {
         if (headers[c].style.display!=="none")
         {
-            notFoundFlag = true;
+            notFoundFlag = false;
         }
     }
     if(notFoundFlag)
     {
         console.log(document.getElementsByTagName("h2"))
+        document.getElementsByTagName("h2")[0].style.display="";
     }
 
     else{
-        
+        document.getElementsByTagName("h2")[0].style.display = "none";
     }
+   
+
 }
 
 /**

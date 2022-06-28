@@ -12,10 +12,6 @@ import displayResults from "./Components/Search";
 
 function App() {
   const [currentData, setData] = useState(defaultData);
-  // document.body.style.zoom = "150%";
-  let zoom = ((window.outerWidth - 10)/ window.innerWidth) * 100;
-    console.log(zoom)
-  window.outerWidth = window.innerWidth +200;
   /**
   * Bubble sort algorithm to sort salaries Lowest -> Highest
   */
@@ -75,6 +71,7 @@ function App() {
       <Results input={currentData}/>
     </div>
   );
+  
 }
 
 export default App;

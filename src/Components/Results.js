@@ -129,12 +129,11 @@ function Results(input) {
                 }
                 )}
             </ul>
-
-            <h2>NOT FOUND</h2>
-            
+            <h2>[NO ENTRIES FOUND]</h2>
         </div>
     );
 }
+
 export default Results;
 
 /**
