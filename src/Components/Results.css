@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap");
 
-input.Search {
+/* input.Search {
     height: 30px;
     width: 350px;
     float: left;
@@ -19,9 +19,9 @@ input.Search {
 input.Search:focus,
 input.Search:hover {
     border: 2px solid black;
-}
+} */
 
-div.SButton {
+/* div.SButton {
     float: right;
     margin-right: 580px;
     margin-top: 80px;
@@ -31,7 +31,7 @@ div.SButton {
 .SearchBar {
     width: 98%;
     position: absolute;
-}
+} */
 
 .managerList,
 .employeeList,
@@ -69,10 +69,10 @@ img {
 .managerChip {
     display: inline-block;
     padding: 0 25px;
-    height: 50px;
-    font-size: 20px;
+    height: 40px;
+    font-size: 14px;
     font-weight: bold;
-    line-height: 50px;
+    line-height: 40px;
     border-radius: 20px;
     background-color: #c12127;
     color: white;
@@ -82,50 +82,51 @@ img {
 .managerChip img {
     float: left;
     margin: 0 10px 0 -25px;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
 }
 
 .empChip {
     display: inline-block;
     padding: 0 25px;
-    height: 50px;
-    font-size: 20px;
+    height: 40px;
+    font-size: 14px;
     font-weight: bold;
-    line-height: 50px;
+    line-height: 40px;
     border-radius: 20px;
     background-color: #bc6a00;
     color: white;
 
 }
 
-.empChip img {
+.empChip img {  
     float: left;
     margin: 0 10px 0 -25px;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
 }
 
 .traineeChip {
     display: inline-block;
     padding: 0 25px;
-    height: 50px;
-    font-size: 20px;
+    height: 40px;
+    font-size: 14px;
     font-weight: bold;
-    line-height: 50px;
+    line-height: 40px;
     border-radius: 20px;
     background-color: #8f9299;
     color: white;
 
 }
 
+
 .traineeChip img {
     float: left;
-    margin: 0 10px 0 -25px;
-    height: 50px;
-    width: 50px;
+     margin: 0 10px 0 -25px;
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
 }
 
@@ -155,6 +156,7 @@ select {
 h1{
     color: #ffffff;
     text-decoration: underline;
+    font-size: 120%;
 
 }
 

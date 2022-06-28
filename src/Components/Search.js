@@ -35,7 +35,7 @@ function Search() {
     maxA=maxAge
 
         return (
-            <div>
+            <div className="filters">
                 <input className="search" id="userInput" type="text" onKeyUp={displayResults} placeholder="Search..." />
                 <div className="roleSelectorBlock">
                     <b>Filter by Role:</b>
@@ -83,7 +83,7 @@ function Search() {
                     </div>
                 </div>
 
-                <div className="age-slider">
+                <div className="calendar">
                     <Calendar
                         value={dateState}
                         onChange={changeDate}      
@@ -215,27 +215,3 @@ function checkRoleType(txtValue) {
 }
 export default Search
 
-
-
-
-    // < div className = "age-slider" >
-    //                 <b>Born After:</b>  <input type="range" min="1950" max="2005" value={minAge}
-    //                     onChange={({ target: { value: radius } }) => {
-    //                         onMinAge(radius);
-    //                         displayResults();
-    //                     }}
-    //                 />
-    //                 <div className="buble">
-    //                     <b>{minAge}</b>
-    //                 </div>
-
-    //                 <b>Born Before:</b> <input type="range" min="1950" max="2005" value={maxAge}
-    //                     onChange={({ target: { value: radius } }) => {
-    //                         onMaxAge(radius);
-    //                         displayResults();
-    //                     }}
-    //                 />
-
-    //                 <div className="buble">
-    //                     <b>{maxAge}</b>
-    //                 </div>
