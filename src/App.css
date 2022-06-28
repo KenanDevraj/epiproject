@@ -31,7 +31,7 @@ img {
   font-size: 14px;
   font-weight: 600;
   line-height: normal;
-  margin: 0.3%;
+  margin: 0.5%;
   min-height: 50px;
   min-width: 0;
   outline: none;
@@ -55,6 +55,7 @@ img {
 .button-27:hover {
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   transform: translateY(-2px);
+  cursor: pointer;
 }
 
 .button-27:active {
@@ -64,5 +65,5 @@ img {
 
 .buttonContainer{
   /* border: #2a3 solid 3px; */
-  margin-top:-8% ;
+  margin-top:-7% ;
 }

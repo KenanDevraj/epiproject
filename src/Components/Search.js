@@ -61,7 +61,7 @@ function Search() {
                     </select>
                 </div>
 
-                <div className="salary-slider">
+                <div className="salarySlider">
                     <b>Min. Salary</b>  <input type="range" min="0" max="100" value={minValue}
                         onChange={({ target: { value: radius } }) => {
                             onMinChange(radius);

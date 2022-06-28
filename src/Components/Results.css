@@ -78,6 +78,9 @@ img {
     color: white;
 
 }
+.managerChip:hover{
+    cursor: pointer;
+}
 
 .managerChip img {
     float: left;
