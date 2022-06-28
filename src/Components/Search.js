@@ -23,8 +23,6 @@ function Search() {
 /**
 * Use states to update the UI of the range selectors
 */
-  
-
     const [minValue, onMinChange] = useState(0);
     const [maxValue, onMaxChange] = useState(100);
     const [minAge, onMinAge] = useState(0);
@@ -40,7 +38,6 @@ function Search() {
                 <div className="roleSelectorBlock">
                     <b>Filter by Role:</b>
                     <select onChange={({ target: { value: radius } }) => {
-                        // console("Hello WORld")
                          displayResults();
                     }} id="roleType" className="roleSelector">
                         <option >All</option>
@@ -52,14 +49,24 @@ function Search() {
 
                 <div className="dateSelectorBlock">
                     <select onChange={({ target: { value: radius } }) => {
-                      
+                         displayResults();
+                    }} id="dateSelector" className="dateSelector">
+                        <option>Disabled</option>
+                        <option>Born Before:</option>
+                        <option>Born After:</option>
+                    </select>
+                </div>
+
+                {/* <div className="dateSelectorBlock">
+                  
+                    <select onChange={({ target: { value: radius } }) => {
                         displayResults();
                     }} id="dateSelector" className="dateSelector">
                         <option>Disabled</option>
                         <option>Born Before</option>
                         <option>Born After</option>
                     </select>
-                </div>
+                </div> */}
 
                 <div className="salarySlider">
                     <b>Min. Salary</b>  <input type="range" min="0" max="100" value={minValue}
@@ -82,14 +89,14 @@ function Search() {
                         <b>R{maxValue * 10000}</b>
                     </div>
                 </div>
-
                 <div className="calendar">
                     <Calendar
                         value={dateState}
                         onChange={changeDate}      
                     />
-                    <p><b>{moment(dateState).format('MMMM Do YYYY')}</b></p>                  
+                             
                 </div>
+                <div className="calendarText"><p><b>{moment(dateState).format('MMMM Do YYYY')}</b></p> </div>        
             </div>
         )
     
@@ -160,16 +167,13 @@ function displayResults() {
 function checkDate(selectedDate,empDate)
 {
     // console.log(selectedDate)
-    // console.log(selectedDate.getDate())
-    // console.log(selectedDate.getMonth()+1)
-    // console.log(selectedDate.getFullYear())
 
     let empDateArray = empDate.split("-");
     if (document.getElementById("dateSelector").value==="Disabled")
     {
         return true;
     }
-    else if (document.getElementById("dateSelector").value === "Born Before")
+    else if (document.getElementById("dateSelector").value === "Born Before:")
     {
         if (parseInt(empDateArray[2]) < selectedDate.getFullYear() 
         // && parseInt(empDateArray[1]) < selectedDate.getMonth() + 1 &&
@@ -179,7 +183,7 @@ function checkDate(selectedDate,empDate)
         }
     }
 
-    else if (document.getElementById("dateSelector").value === "Born After") {
+    else if (document.getElementById("dateSelector").value === "Born After:") {
         if (parseInt(empDateArray[2]) > selectedDate.getFullYear()
         //  &&parseInt(empDateArray[1]) > selectedDate.getMonth() + 1 &&
         //     parseInt(empDateArray[0]) > selectedDate.getDate()

@@ -98,7 +98,7 @@ function Results(input) {
                 {employees.map((em) => {
                     return (
                         <div>
-                            <li  ><p onClick={() => { updateResults(em); }} title={[em.salary, em.birth]} className="empChip"><img src={contact} alt="IMG not found!" />{em.empNum} - [{em.role}] {em.name} {em.surname} {em.birth} R{em.salary}</p>
+                            <li  ><p onClick={() => { updateResults(em); }} title={[em.salary, em.birth]} className="empChip2"><img src={contact} alt="IMG not found!" />{em.empNum} - [{em.role}] {em.name} {em.surname} {em.birth} R{em.salary}</p>
 
                                 {em.children.map((t) => {
                                     let uniqueID = "EMP" + t.empNum

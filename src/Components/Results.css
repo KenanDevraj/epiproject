@@ -40,11 +40,12 @@ input.Search:hover {
 }
 
 .displayResults {
-    margin-top: 3%;
+    margin-top: 6%;
     margin-left: 25%;
     position: absolute;
     width: 70%;
     font-family: sans-serif;
+    border:  2px solid green;
 }
 
 
@@ -101,6 +102,30 @@ img {
     background-color: #bc6a00;
     color: white;
 
+}
+
+.empChip2 {
+    display: inline-block;
+    padding: 0 25px;
+    height: 40px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 40px;
+    border-radius: 20px;
+    background-color: #bc6a00;
+    color: white;
+
+}
+
+.empChip2:hover{
+    cursor: pointer;
+}
+.empChip2 img {
+    float: left;
+    margin: 0 10px 0 -25px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
 }
 
 .empChip img {  
