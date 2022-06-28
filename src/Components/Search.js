@@ -53,17 +53,6 @@ function Search() {
                     </select>
                 </div>
 
-                {/* <div className="dateSelectorBlock">
-                  
-                    <select onChange={({ target: { value: radius } }) => {
-                        displayResults();
-                    }} id="dateSelector" className="dateSelector">
-                        <option>Disabled</option>
-                        <option>Born Before</option>
-                        <option>Born After</option>
-                    </select>
-                </div> */}
-
                 <div className="salarySlider">
                     <b>Min. Salary</b>  <input type="range" min="0" max="100" value={minValue}
                         onChange={({ target: { value: radius } }) => {
@@ -160,9 +149,11 @@ function displayResults() {
     }
 }
 
+/**
+* Function to retrieve and compare the employees birthday and selected date
+*/
 function checkDate(selectedDate,empDate)
 {
-    // console.log(selectedDate)
 
     let empDateArray = empDate.split("-");
     if (document.getElementById("dateSelector").value==="Disabled")
@@ -171,23 +162,34 @@ function checkDate(selectedDate,empDate)
     }
     else if (document.getElementById("dateSelector").value === "Born Before:")
     {
-        if (parseInt(empDateArray[2]) < selectedDate.getFullYear() 
-        // && parseInt(empDateArray[1]) < selectedDate.getMonth() + 1 &&
-        //     parseInt(empDateArray[0]) < selectedDate.getDate()
-            ) {
-            return true;
+        if (parseInt(empDateArray[2]) < selectedDate.getFullYear())
+        {return true}
+        else if (parseInt(empDateArray[2]) === selectedDate.getFullYear())
+        {
+            if (parseInt(empDateArray[1]) < selectedDate.getMonth()+1)
+            {return true}
+            else if (parseInt(empDateArray[1]) === selectedDate.getMonth()+1)
+            {
+               if (parseInt(empDateArray[0]) < selectedDate.getDate())
+               {return true}
+               else return false
+            }
+            else return false
         }
+        else return false    
     }
-
     else if (document.getElementById("dateSelector").value === "Born After:") {
-        if (parseInt(empDateArray[2]) > selectedDate.getFullYear()
-        //  &&parseInt(empDateArray[1]) > selectedDate.getMonth() + 1 &&
-        //     parseInt(empDateArray[0]) > selectedDate.getDate()
-            ) {
-            return true;
+        if (parseInt(empDateArray[2]) > selectedDate.getFullYear()) { return true }
+        else if (parseInt(empDateArray[2]) === selectedDate.getFullYear()) {
+            if (parseInt(empDateArray[1]) > selectedDate.getMonth() + 1) { return true }
+            else if (parseInt(empDateArray[1]) === selectedDate.getMonth() + 1) {
+                if (parseInt(empDateArray[0]) > selectedDate.getDate()) { return true }
+                else return false
+            }
+            else return false
         }
+        else return false    
     }
-    return false;
 }
 /**
 * Update Data when a user selects a role type
