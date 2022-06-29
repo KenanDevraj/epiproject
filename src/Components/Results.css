@@ -1,52 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap");
-
-/* input.Search {
-    height: 30px;
-    width: 350px;
-    float: left;
-    margin-top: 70px;
-    margin-bottom: 10px;
-    margin-left: 150px;
-    font-family: "Patrick Hand", cursive;
-    font-size: medium;
-    border-radius: 6px;
-    cursor: pointer;
-    border: 2px solid rgba(216, 213, 213, 0.993);
-    padding-left: 10px;
-    position: relative;
-}
-
-input.Search:focus,
-input.Search:hover {
-    border: 2px solid black;
-} */
-
-/* div.SButton {
-    float: right;
-    margin-right: 580px;
-    margin-top: 80px;
-    margin-bottom: 15px;
-}
-
-.SearchBar {
-    width: 98%;
-    position: absolute;
-} */
+/* @import url("https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap"); */
 
 .managerList,
 .employeeList,
 .traineeList {
     list-style-type: none;
 }
-
 .displayResults {
-    margin-top: 6%;
+    margin-top: 3%;
     margin-left: 25%;
     position: absolute;
     width: 70%;
     font-family: sans-serif;
 }
-
 
 img {
     border-radius: 10px;
@@ -56,7 +21,6 @@ img {
     width: 5%;
     height: 5%;
 }
-
 
 .Logo {
     float: left;
@@ -76,7 +40,6 @@ img {
     border-radius: 20px;
     background-color: #c12127;
     color: white;
-
 }
 .managerChip:hover{
     cursor: pointer;
@@ -100,7 +63,6 @@ img {
     border-radius: 20px;
     background-color: #bc6a00;
     color: white;
-
 }
 
 .empChip2 {
@@ -113,7 +75,6 @@ img {
     border-radius: 20px;
     background-color: #bc6a00;
     color: white;
-
 }
 
 .empChip2:hover{
@@ -145,10 +106,7 @@ img {
     border-radius: 20px;
     background-color: #8f9299;
     color: white;
-
 }
-
-
 .traineeChip img {
     float: left;
      margin: 0 10px 0 -25px;
@@ -183,12 +141,9 @@ select {
 h1{
     color: #ffffff;
     text-decoration: underline;
-    font-size: 120%;
+    font-size: 130%;
 }
 
 h2{
     color: #ffffff;
-}
-.k{
-    
 }

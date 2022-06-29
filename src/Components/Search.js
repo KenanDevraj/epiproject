@@ -148,16 +148,12 @@ function displayResults() {
     else{
         document.getElementsByTagName("h2")[0].style.display = "none";
     }
-   
-
 }
-
 /**
 * Function to retrieve and compare the employees birthday and selected date
 */
 function checkDate(selectedDate,empDate)
 {
-
     let empDateArray = empDate.split("-");
     if (document.getElementById("dateSelector").value==="Disabled")
     {

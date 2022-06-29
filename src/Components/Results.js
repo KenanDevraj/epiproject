@@ -135,7 +135,6 @@ function Results(input) {
 }
 
 export default Results;
-
 /**
 * Update data when Dropdowns are clicked on
 */
