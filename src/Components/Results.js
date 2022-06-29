@@ -17,17 +17,15 @@ function Person(n, s, b, num, sal, rol, rep, child) {
     this.repLine = rep;
     this.children = child;
 }
-/**
- * Declare arrays to store Persons in arrays
- */
-
-
 
 function Results(input) {
  /**
  * Retrieve data from database
  */
     let data = input.input
+/**
+ * Declare arrays to store Persons in arrays
+ */
     var managers = []
     var employees = []
     var trainees = []

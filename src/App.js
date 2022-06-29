@@ -7,9 +7,8 @@ import defaultData from "./employees.json";
 import displayResults from "./Components/Search";
 
 /**
-* Root function where all Components are rendered
+* Root function where all Components are called and rendered
 */
-
 function App() {
   const [currentData, setData] = useState(defaultData);
   /**
@@ -31,10 +30,9 @@ function App() {
     setData(arr)
   }
   /**
-  * Bubble sort algorithm to sort salaries Lowest -> Highest
+  * Bubble sort algorithm to sort salaries Highest -> Lowest
   */
   function sortByHighest(currentData) {
-
     const arr = Array.from(currentData);
     let len = currentData.length;
     for (let i = 0; i < len - 1; i++) { 
@@ -59,19 +57,19 @@ function App() {
         }}>
           Sort by Lowest Earning
         </button>
-
         <button class="sortingButtons" onClick={() => {
           sortByHighest(currentData)
           displayResults()
         }}>
           Sort by Highest Earning
         </button>
-
       </div>
+      {/*
+      * Data is passed into the Results Component and is rendered to the user
+       */}
       <Results input={currentData}/>
     </div>
   );
   
 }
-
 export default App;
